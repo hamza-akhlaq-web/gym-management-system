@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Membership - IronFlex Gym</title>
+    <link rel="stylesheet" href="{{  url_for('static', filename='style.css')  }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>IronFlex Gym</h1>
+        <nav>
+            <a href="{{  url_for('home')  }}">Home</a>
+            <a href="{{  url_for('about')  }}">About Us</a>
+            <a href="{{  url_for('membership')  }}">Membership</a>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Membership Plans</h2>
+
+        <div class="pricing">
+            <div class="price-card">
+                <h3>Basic</h3>
+                <p class="price">£20 / Month</p>
+                <p>Access to gym equipment</p>
+            </div>
+
+            <div class="price-card">
+                <h3>Standard</h3>
+                <p class="price">£35 / Month</p>
+                <p>Gym + Cardio + Group Classes</p>
+            </div>
+
+            <div class="price-card">
+                <h3>Premium</h3>
+                <p class="price">£50 / Month</p>
+                <p>All Access + Personal Trainer</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 IronFlex Gym. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
