@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - IronFlex Gym</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .success-message {
+            display: none;
+            background: #1f1f1f;
+            border: 2px solid #22c55e;
+            color: #22c55e;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            display: none;
+            background: #1f1f1f;
+            border: 2px solid #ef4444;
+            color: #ef4444;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #ef4444;
+        }
+
+        .error-text {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>IronFlex Gym</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Contact Us</h2>
+        <p>Have any questions or inquiries? We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
+
+        <div class="form-container">
+            <div class="success-message" id="successMessage">✓ Thank you! Your message has been sent successfully. We'll contact you soon.</div>
+            <div class="error-message" id="errorMessage">⚠ Please fill in all fields correctly.</div>
+
+            <form id="contactForm" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-text">Please enter your name</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-text">Please enter a valid email</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(Optional)">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <span class="error-text">Please enter a subject</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
+                    <span class="error-text">Please enter your message</span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn">Send Message</button>
+                    <button type="reset" class="btn btn-secondary">Clear</button>
+                </div>
+            </form>
+        </div>
+
+        <div style="margin-top: 50px; max-width: 1200px;">
+            <h3 style="text-align: center; color: #e11d48; margin-bottom: 30px;">Get in Touch</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="text-align: center;">
+                    <h4 style="font-size: 20px; margin-bottom: 10px;">📍 Location</h4>
+                    <p>123 Fitness Avenue<br>Athletic City, AC 12345<br>United States</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4 style="font-size: 20px; margin-bottom: 10px;">📞 Phone</h4>
+                    <p>+1 (555) 123-4567<br>Mon-Fri: 6 AM - 10 PM<br>Sat-Sun: 8 AM - 8 PM</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4 style="font-size: 20px; margin-bottom: 10px;">✉️ Email</h4>
+                    <p>info@ironflex.com<br>support@ironflex.com<br>Respond within 24 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 IronFlex Gym. All Rights Reserved. | Your Fitness, Our Mission</p>
+        <div class="footer-links">
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Validate form
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Reset messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            // Validate required fields
+            let isValid = true;
+            if (!name) {
+                document.getElementById('name').parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('name').parentElement.classList.remove('error');
+            }
+
+            if (!email || !isValidEmail(email)) {
+                document.getElementById('email').parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('email').parentElement.classList.remove('error');
+            }
+
+            if (!subject) {
+                document.getElementById('subject').parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('subject').parentElement.classList.remove('error');
+            }
+
+            if (!message) {
+                document.getElementById('message').parentElement.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('message').parentElement.classList.remove('error');
+            }
+
+            if (!isValid) {
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            try {
+                const response = await fetch('{{ url_for("contact") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: document.getElementById('phone').value.trim(),
+                        subject: subject,
+                        message: message
+                    })
+                });
+
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    form.reset();
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorMessage.style.display = 'block';
+            }
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+
+</body>
+
+</html>

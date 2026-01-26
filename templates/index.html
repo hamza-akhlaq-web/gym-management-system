@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>IronFlex Gym</title>
-    <link rel="stylesheet" href="{{  url_for('static', filename='style.css')  }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronFlex Gym - Your Fitness Journey Starts Here</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -12,26 +13,53 @@
     <header>
         <h1>IronFlex Gym</h1>
         <nav>
-            <a href="{{  url_for('home')  }}">Home</a>
-            <a href="{{  url_for('about')  }}">About Us</a>
-            <a href="{{  url_for('membership')  }}">Membership</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
         </nav>
     </header>
 
     <section class="hero">
         <h2>Build Your Body. Build Your Strength.</h2>
-        <p>Train hard, stay fit, and achieve your goals with IronFlex Gym.</p>
-        <a href="{{  url_for('membership')  }}" class="btn">Join Now</a>
+        <p>Transform your fitness journey with IronFlex Gym. Expert trainers, modern equipment, and flexible timings await you.</p>
+        <a href="{{ url_for('register') }}" class="btn">Join Now</a>
     </section>
 
     <section class="features">
-        <div class="card">🏋️ Modern Equipment</div>
-        <div class="card">🔥 Expert Trainers</div>
-        <div class="card">💪 Flexible Timings</div>
+        <div class="card">
+            <div class="card-icon">🏋️</div>
+            <h3>Modern Equipment</h3>
+            <p>State-of-the-art fitness equipment and machines for all workout needs.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">👨‍🏫</div>
+            <h3>Expert Trainers</h3>
+            <p>Certified and experienced trainers to guide you through your fitness goals.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">⏰</div>
+            <h3>Flexible Timings</h3>
+            <p>Open 24/7 with flexible membership plans to fit your schedule.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🥗</div>
+            <h3>Nutrition Plans</h3>
+            <p>Personalized nutrition guidance to complement your workout routine.</p>
+        </div>
     </section>
 
     <footer>
-        <p>© 2025 IronFlex Gym. All Rights Reserved.</p>
+        <p>&copy; 2025 IronFlex Gym. All Rights Reserved. | Your Fitness, Our Mission</p>
+        <div class="footer-links">
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
     </footer>
 
 </body>

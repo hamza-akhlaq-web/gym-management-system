@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - IronFlex Gym</title>
-    <link rel="stylesheet" href="{{  url_for('static', filename='style.css')  }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -12,27 +13,95 @@
     <header>
         <h1>IronFlex Gym</h1>
         <nav>
-            <a href="{{  url_for('home')  }}">Home</a>
-            <a href="{{  url_for('about')  }}">About Us</a>
-            <a href="{{  url_for('membership')  }}">Membership</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
         </nav>
     </header>
 
     <section class="content">
-        <h2>About Us</h2>
-        <p>
-            IronFlex Gym is dedicated to helping you become the strongest version of yourself.
-            Our mission is to provide a motivating environment, professional trainers, and
-            world-class equipment to help you achieve real results.
+        <h2>About IronFlex Gym</h2>
+        <p style="font-size: 18px; margin-bottom: 30px;">
+            IronFlex Gym is dedicated to helping you become the strongest version of yourself. Our mission is to provide a motivating environment, professional trainers, and world-class equipment to help you achieve real results.
         </p>
-        <p>
-            Whether you are a beginner or a professional athlete, IronFlex Gym is the place
-            where discipline meets transformation.
-        </p>
+
+        <div class="about-section">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=500&fit=crop" alt="Modern Gym Facility">
+            <div class="about-text">
+                <h3>Our Story</h3>
+                <p>Founded in 2015, IronFlex Gym started with a simple vision: to create a welcoming space where everyone can achieve their fitness goals. From a small 2,000 sq ft facility to our current state-of-the-art 15,000 sq ft complex, we've grown exponentially while maintaining our core values of dedication, excellence, and community.</p>
+                <p style="margin-top: 15px;">Whether you are a beginner or a professional athlete, IronFlex Gym is the place where discipline meets transformation. Our dedicated team of certified trainers and nutritionists is committed to your success every step of the way.</p>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div class="about-text">
+                <h3>Our Mission & Vision</h3>
+                <p><strong>Mission:</strong> To empower individuals to achieve their fitness goals through professional coaching, cutting-edge equipment, and a supportive community.</p>
+                <p style="margin-top: 15px;"><strong>Vision:</strong> To be the most trusted and innovative fitness center in the region, recognized for transforming lives and building stronger communities.</p>
+                <p style="margin-top: 15px;"><strong>Core Values:</strong> Integrity, Excellence, Community, Innovation, and Personal Growth.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1552821554-5fefe8c9ef14?w=500&h=500&fit=crop" alt="Team Training">
+        </div>
+
+        <h3>Why Choose IronFlex Gym?</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3 style="color: #e11d48; font-size: 18px;">State-of-the-Art Facility</h3>
+                <p>15,000 sq ft modern gym with equipment from leading manufacturers worldwide.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👨‍🏫</div>
+                <h3 style="color: #e11d48; font-size: 18px;">Certified Trainers</h3>
+                <p>Team of NASM, ACE, and ISSA certified trainers with 10+ years of experience.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3 style="color: #e11d48; font-size: 18px;">Community Support</h3>
+                <p>Join thousands of fitness enthusiasts in a supportive and motivating environment.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3 style="color: #e11d48; font-size: 18px;">Progress Tracking</h3>
+                <p>Advanced tracking systems and regular assessments to monitor your progress.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3 style="color: #e11d48; font-size: 18px;">Personalized Plans</h3>
+                <p>Customized workout and nutrition plans tailored to your specific goals.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⏰</div>
+                <h3 style="color: #e11d48; font-size: 18px;">24/7 Access</h3>
+                <p>Flexible gym hours available 24/7 to fit your busy schedule.</p>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #1f1f1f 0%, #2d2d2d 100%); padding: 40px; border-radius: 10px; margin-top: 50px; text-align: center; border-left: 4px solid #e11d48;">
+            <h3 style="font-size: 24px; margin-bottom: 15px;">Join Our Fitness Family Today</h3>
+            <p style="margin-bottom: 20px; color: #ccc;">Become part of a community dedicated to health, strength, and personal growth. Start your transformation journey now!</p>
+            <a href="{{ url_for('register') }}" class="btn">Get Started</a>
+        </div>
     </section>
 
     <footer>
-        <p>© 2025 IronFlex Gym. All Rights Reserved.</p>
+        <p>&copy; 2025 IronFlex Gym. All Rights Reserved. | Your Fitness, Our Mission</p>
+        <div class="footer-links">
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
     </footer>
 
 </body>

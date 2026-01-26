@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IronFlex Gym</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .login-container {
+            max-width: 450px;
+            margin: 60px auto;
+        }
+
+        .form-divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #bbb;
+        }
+
+        .form-divider::before {
+            content: '';
+            display: inline-block;
+            width: 100px;
+            height: 1px;
+            background: #404040;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .form-divider::after {
+            content: '';
+            display: inline-block;
+            width: 100px;
+            height: 1px;
+            background: #404040;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .register-link a {
+            color: #e11d48;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            cursor: pointer;
+            accent-color: #e11d48;
+        }
+
+        .forgot-password {
+            color: #e11d48;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>IronFlex Gym</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        </nav>
+    </header>
+
+    <section class="content">
+        <div class="login-container">
+            <h2>Welcome Back</h2>
+            <p style="text-align: center; color: #bbb; margin-bottom: 30px;">Sign in to your IronFlex account</p>
+
+            <form method="POST" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username or Email *</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="remember-me">
+                    <label>
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; text-align: center; margin-top: 10px;">Login</button>
+            </form>
+
+            <div class="form-divider">OR</div>
+
+            <div class="register-link">
+                Don't have an account? <a href="{{ url_for('register') }}">Register here</a>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #404040; color: #bbb; font-size: 13px;">
+                <p>By signing in, you agree to our Terms of Service and Privacy Policy</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 IronFlex Gym. All Rights Reserved. | Your Fitness, Our Mission</p>
+        <div class="footer-links">
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - IronFlex Gym</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>IronFlex Gym</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Gallery</h2>
+        <p>Explore our state-of-the-art facility, modern equipment, and vibrant fitness community.</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop" alt="Gym Equipment">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1532156229b4-e9ffe7c77c20?w=400&h=400&fit=crop" alt="Strength Training">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=400&fit=crop" alt="Yoga Class">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1574680178050-55c6a6be0ed0?w=400&h=400&fit=crop" alt="Cardio Equipment">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=400&h=400&fit=crop" alt="Dumbbells">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1540497905036-9eae9c02c4b0?w=400&h=400&fit=crop" alt="Group Fitness">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1521575107034-e3fb11b08e77?w=400&h=400&fit=crop" alt="Gym Interior">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop" alt="Fitness Training">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1576678927484-cc907957a753?w=400&h=400&fit=crop" alt="Personal Training">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1618519738166-8d9c1d55b0e6?w=400&h=400&fit=crop" alt="Pool Area">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1638098519189-5f5e4aef75f4?w=400&h=400&fit=crop" alt="Nutrition Plan">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1605296240773-57d2e27aced0?w=400&h=400&fit=crop" alt="Progress Tracking">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 IronFlex Gym. All Rights Reserved. | Your Fitness, Our Mission</p>
+        <div class="footer-links">
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
